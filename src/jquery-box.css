@@ -1,0 +1,20 @@
+
+
+div.context {position: absolute;}
+div.context .inner {background: #fff;border: 1px solid #ddd;padding: 0.5em;}
+div.context .point {background-image: url(point.png);background-repeat: no-repeat;position: absolute;}
+
+.context-mask {background: transparent;opacity: 0.1;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+
+div.context.left {padding-left: 9px;}
+div.context.right {padding-right: 9px;}
+div.context.right .point, div.context.left .point {width: 10px; height: 20px; top:0;}
+div.context.right .point {background-position: 0 -22px;right: 0;}
+div.context.left .point {background-position: -10px -22px; left: 0;}
+
+div.context.top {padding-top: 10px;}
+div.context.bottom {padding-bottom: 10px;}
+div.context.top .point, div.context.bottom .point {width: 20px; height: 11px;}
+div.context.top .point {background-position: 0 -11px;top: 0;}
+div.context.bottom .point {background-position: 0 0;bottom: 0;}
+

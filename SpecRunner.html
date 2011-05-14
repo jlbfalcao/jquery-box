@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>jquery-box</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.2/jasmine.css">
+  <link rel="stylesheet" type="text/css" href="src/jquery-box.css">
+  <script type="text/javascript" src="lib/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.tmpl.min.js"></script>
+
+  <!-- just jquery-ui-position -->
+  <script type="text/javascript" src="lib/jquery-ui-1.8.12.custom.min.js"></script>
+
+  <script type="text/javascript" src="lib/jasmine-1.0.2/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.2/jasmine-html.js"></script>
+  <script type="text/javascript" src="lib/jasmine-jquery.js"></script>
+
+  <script type="text/javascript" src="lib/sinon-1.1.0.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="src/jquery-box.js"></script>
+
+  <!-- include spec files here... -->
+  <script type="text/javascript" src="spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="spec/jquery-box-spec.js"></script>
+  
+  <style>
+#sample {
+    border: 1px solid #ddd;
+    padding: 2em;
+}
+#sample a {
+  display: inline-block;
+  margin: 0.5em;
+  background: #ff0;
+}
+  </style>
+
+</head>
+<body>
+
+<div id="sample">
+  
+  <script id="simple-template" type="text/x-jquery-tmpl">
+      <p>
+        <label for="t">type</label>
+        <input type="text" id="t" name="v" value="${v}" />
+        <a class="close">fechar</a>
+      </p>
+  </script>
+  
+  <script id="simple-with-data" type="text/x-jquery-tmpl">
+      <div>
+        <h3>${name}</h3>
+        <p>Some text</p>
+      </div>
+  </script>
+  
+  
+  <div style="text-align:center;margin-bottom: 3em;background:#ddd; padding: 1em">
+    <button data-context-tmpl="simple-template" data-context-position="top-left" style="float:left">top-left</button>
+    <button data-context-tmpl="simple-template" data-context-position="top">top</button>
+    <button data-context-tmpl="simple-template" data-context-position="top-right" style="float:right">top-right</button>
+  </div>
+  <div style="text-align:center;margin-top: 3em;margin-bottom: 3em;background: #eee; padding: 1em;height: 1.3em">
+    <button data-context-tmpl="simple-template" data-context-position="left" style="float:left">left</button>
+    <button data-context-tmpl="simple-template" data-context-position="right" style="float:right">right</button>
+  </div>
+  <div style="text-align:center;margin-top: 3em;background:#ddd; padding: 1em">
+    <button data-context-tmpl="simple-template" data-context-position="bottom-left" style="float:left">bottom-left</button>
+    <button data-context-tmpl="simple-template" data-context-position="bottom">bottom</button>
+    <button data-context-tmpl="simple-template" data-context-position="bottom-right" style="float:right">bottom-right</button>
+  </div>
+
+  <br /><br />
+  <a data-context-tmpl="simple-template" data-v="valor'asdfas">template context</a>
+  <a data-context-tmpl="simple-with-data" data-name="Name">template with
+  name</a>
+  <br />
+  <a data-context-tmpl="simple-with-data" data-name="Name" data-context-position="bottom">template with name in bottom</a>
+  <a data-context-tmpl="simple-with-data" data-name="Name" data-context-position="bottom">template with name in bottom</a>
+  <br />
+  <a data-context-tmpl="simple-with-data" data-name="Name" data-context-position="left">left</a><br />
+  <a data-context-tmpl="simple-with-data" data-name="Name" data-context-position="right">right</a>
+
+  <!--
+  <a data-context-tmpl="simple-template" data-context-size="100x20"> template
+  with size</a>
+  <a data-context-tmpl="simple-template" data-context-position="top">position top</a>
+  <a data-context-remote="/foo.js">remove context</a>
+  -->
+</div>
+
+<script type="text/javascript">
+  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+  jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
