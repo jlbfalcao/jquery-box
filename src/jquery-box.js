@@ -1,9 +1,16 @@
 
 (function( $ ){
 
+  var closeContext = function() {
+    $('.context-mask, .context').remove()
+  };
+
     // default actions.
-    $('.context .close, .context-mask').live('click', function() {
-        $('.context-mask, .context').remove()
+    $('.context .close, .context-mask').live('click', closeContext);
+    $(document).keydown(function(ev) {
+        if (ev.keyCode == 27) {
+            closeContext();
+        }
     });
     
     var inverse = function(v) {
@@ -63,20 +70,5 @@
 })(jQuery);
 
 $(function() {
-
-    $('*[data-context-tmpl]').contextfy({
-        afteropen: function(el) {
-        }
-    });
-    // $('*[data-context-tmpl]').contextfy();
-
-    $('body_').contextfy();
-
-    // TODO:
-    // $('*[data-context-remote]').each(function(i, e) {
-    //     var remote = $(e).data('contextRemote');
-    //     console.debug(remote);
-    // });
-    
-
+    $('*[data-context-tmpl]').contextfy();
 });
